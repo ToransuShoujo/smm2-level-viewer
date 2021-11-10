@@ -671,7 +671,19 @@
 			"y": 3125,
 			"width": 32,
 			"height": 32
-		}
+		},
+		"green_koopa": {
+			"x": 85,
+			"y": 3126,
+			"width": 16,
+			"height": 32
+		},
+		"red_koopa": {
+			"x": 85,
+			"y": 3159,
+			"width": 16,
+			"height": 32
+		}		 
 	},
 	"rails": {
 		"flat": {
