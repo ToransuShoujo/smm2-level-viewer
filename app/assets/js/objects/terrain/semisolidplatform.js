@@ -1,6 +1,6 @@
 /* eslint-env browser */
 
-const Terrain = require('./terrain');
+const Terrain = require('./terrain.js');
 
 class SemisolidPlatform extends Terrain {
 	constructor(data) {
@@ -27,7 +27,6 @@ class SemisolidPlatform extends Terrain {
 		for (let x = 0; x < this.data.dimensions.width; x++) {
 			for (let y = 0; y < this.data.dimensions.height; y++) {
 				let offset;
-
 				// The "top" and "bottom" positions are "reversed" because HTML5 canvas grid origin is opposite of SMM2 origin
 				if (x === 0) {
 					if (y === 0) {
@@ -66,7 +65,7 @@ class SemisolidPlatform extends Terrain {
 						}
 					}
 				}
-				
+
 				this.canvasContext.drawImage(
 					this.scene.spriteSheet,
 					this.spriteSheetThemeOffset.x + offset.x,

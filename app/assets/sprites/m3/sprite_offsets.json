@@ -1,6 +1,10 @@
 {
 	"theme_chunk_offsets": {
 		"day": {
+			"ground": {
+				   "x": 0,
+				   "y": 22
+			},
 			"sky": {
 				"x": 0,
 				"y": 766
