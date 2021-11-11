@@ -24,8 +24,7 @@ class Koopa extends Enemy {
 			this.spriteOffset.height,
 			this.data.position.x,
 			(this.scene.canvas.height - this.data.position.y),
-			this.data.dimensions.width,
-			this.data.dimensions.height
+			1, 2
 		);
 	}
 }
