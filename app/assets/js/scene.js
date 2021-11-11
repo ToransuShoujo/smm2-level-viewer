@@ -19,6 +19,7 @@ const SteepSlope = require('./objects/terrain/steepslope');
 const PinkCoin = require('./objects/items/pinkcoin');
 const AngrySun = require('./objects/enemies/angrysun');
 const Koopa = require('./objects/enemies/koopa');
+const Muncher = require('./objects/enemies/muncher');
 
 const Tile = require('./tile');
 const Rail = require('./rail');
@@ -175,6 +176,9 @@ class CourseViewer {
 				case 55:
 					this.objects.push(new WarpDoor(object));
 					break;
+				case 57:
+					this.objects.push(new Muncher(object));
+					break
 				case 70:
 					this.objects.push(new TenCoin(object));
 					break;

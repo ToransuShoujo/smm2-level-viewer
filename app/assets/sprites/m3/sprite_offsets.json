@@ -683,7 +683,13 @@
 			"y": 3159,
 			"width": 16,
 			"height": 32
-		}		 
+		},
+		"muncher": {
+			"x": 51,
+			"y": 3126,
+			"width": 16,
+			"height": 16
+		}
 	},
 	"rails": {
 		"flat": {
