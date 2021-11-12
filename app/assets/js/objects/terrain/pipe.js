@@ -33,7 +33,6 @@ class Pipe extends Terrain {
 		}
 
 		// Hack to fix draw order. Please, future self, find a better way
-		// Editor's note: new management has taken this project over, there will never be a better way.
 		this.data.position.y_real = this.data.position.y;
 		this.data.position.y = (this.data.position.y + this.data.dimensions.height);
 	}
