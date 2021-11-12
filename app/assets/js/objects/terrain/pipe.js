@@ -12,21 +12,21 @@ class Pipe extends Terrain {
 		this.spriteSheetThemeOffset = this.scene.spriteSheetThemeOffset;
 		this.spriteOffsets = this.scene.spriteSheetData.terrain.pipe;
 
-		if (this.data.flags & 0xC0000) {
+		if ((this.data.flags & 0xC0000) == 0xC0000) {
 			this.spriteOffsets = this.spriteOffsets.yellow;
-		} else if(this.data.flags & 0x80000) {
+		} else if((this.data.flags & 0x80000) == 0x80000) {
 			this.spriteOffsets = this.spriteOffsets.blue;
-		} else if(this.data.flags & 0x40000) {
+		} else if((this.data.flags & 0x40000) == 0x40000) {
 			this.spriteOffsets = this.spriteOffsets.red;
 		} else {
 			this.spriteOffsets =  this.spriteOffsets.green;
 		}
 
-		if (this.data.flags & 0x06000060) {
+		if ((this.data.flags & 0x06000060) == 0x06000060) {
 			pipe_direction = "down";
-		} else if(this.data.flags & 0x06000020) {
+		} else if((this.data.flags & 0x06000020) == 0x06000020) {
 			pipe_direction = "left";
-		} else if(this.data.flags & 0x06000000) {
+		} else if((this.data.flags & 0x06000000) == 0x06000000) {
 			pipe_direction = "right";
 		} else {
 			pipe_direction = "up";

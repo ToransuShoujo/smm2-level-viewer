@@ -20,7 +20,7 @@ const PinkCoin = require('./objects/items/pinkcoin');
 const AngrySun = require('./objects/enemies/angrysun');
 const Koopa = require('./objects/enemies/koopa');
 const Muncher = require('./objects/enemies/muncher');
-const Pipe = require('./objects/terrain/pipe');
+//const Pipe = require('./objects/terrain/pipe');
 
 const Tile = require('./tile');
 const Rail = require('./rail');
@@ -153,9 +153,9 @@ class CourseViewer {
 				case 8:
 					this.objects.push(new Coin(object));
 					break;
-				case 9:
-					this.objects.push(new Pipe(object));
-					break;
+				//case 9:
+				//	this.objects.push(new Pipe(object));
+				//	break;
 				case 16:
 					this.objects.push(new SemisolidPlatform(object));
 					break;
