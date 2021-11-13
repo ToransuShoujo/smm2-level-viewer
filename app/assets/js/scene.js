@@ -21,6 +21,7 @@ const AngrySun = require('./objects/enemies/angrysun');
 const Koopa = require('./objects/enemies/koopa');
 const Muncher = require('./objects/enemies/muncher');
 //const Pipe = require('./objects/terrain/pipe');
+const Lift = require('./objects/gizmos/lift');
 
 const Tile = require('./tile');
 const Rail = require('./rail');
@@ -156,6 +157,9 @@ class CourseViewer {
 				//case 9:
 				//	this.objects.push(new Pipe(object));
 				//	break;
+				case 11:
+					this.objects.push(new Lift(object));
+					break;
 				case 16:
 					this.objects.push(new SemisolidPlatform(object));
 					break;

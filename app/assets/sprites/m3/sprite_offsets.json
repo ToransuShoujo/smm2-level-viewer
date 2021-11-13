@@ -977,6 +977,48 @@
 				"width": 16,
 				"height": 32
 			}
+		},
+		"lift": {
+			"default": {
+				"left": {
+					"x": 955,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 972,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 989,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"flimsy": {
+				"left": {
+					"x": 1006,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 1023,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 1040,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				}
+			}
 		}
 	},
 	"enemies": {
