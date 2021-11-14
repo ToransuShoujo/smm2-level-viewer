@@ -28,19 +28,20 @@ const Rail = require('./rail');
 
 const TIMES = [
 	'day',
+	'undefined',
 	'night'
 ];
 
 const THEMES = [
-	'ground', 
-	'underground', 
-	'castle', 
-	'airship', 
-	'underwater', 
-	'ghost House', 
-	'snow', 
-	'desert', 
-	'sky', 
+	'ground',
+	'underground',
+	'castle',
+	'airship',
+	'underwater',
+	'ghost House',
+	'snow',
+	'desert',
+	'sky',
 	'forest'
 ];
 
@@ -63,7 +64,7 @@ class CourseViewer {
 		this._canvasScaleRate = 15;
 
 		this._setupMouseControls();
-	
+
 		this._reset();
 	}
 
@@ -116,7 +117,7 @@ class CourseViewer {
 			this.ctx.translate(point.x, point.y);
 			this.ctx.scale(factor, factor);
 			this.ctx.translate(-point.x, -point.y);
-		
+
 			this.clear();
 			this.render();
 		});
@@ -202,8 +203,8 @@ class CourseViewer {
 				case 104:
 					this.objects.push(new AngrySun(object));
 					break;
-				
-			
+
+
 				default:
 					console.log(`Unhandled object ID: ${object.type}`);
 					break;
@@ -213,11 +214,11 @@ class CourseViewer {
 		this.objects = this.objects.sort((a, b) => {
 			if (a.data.position.y <= b.data.position.y) {
 				return a.drawPriority - b.drawPriority;
-				
+
 			}
 
 			return b.data.position.y-a.data.position.y;
-			
+
 		});
 
 		callback();
@@ -273,7 +274,7 @@ class CourseViewer {
 			this.spriteSheet.src = `./assets/sprites/${this.courseData.style}/spritesheet.png`;
 			this.spriteSheet.addEventListener('load', resolve);
 		});
-		
+
 		const point = this.ctx.transformedPoint(0, this.canvas.height);
 		const factor = Math.pow(this._scaleRate, (3.75 * 10));
 
