@@ -1088,5 +1088,25 @@
 				"height": 16
 			}
 		}
+	},
+	"modifiers": {
+		"oneWing": {
+			"x": 955,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"twoWings": {
+			"x": 955,
+			"y": 3109,
+			"width": 32,
+			"height": 16
+		},
+		"parachute": {
+			"x": 972,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		}
 	}
 }
