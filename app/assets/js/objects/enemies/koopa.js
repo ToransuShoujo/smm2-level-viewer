@@ -5,7 +5,7 @@ const Enemy = require('./Enemy');
 class Koopa extends Enemy {
 	constructor(data) {
 		super(data);
-		
+
 		this.scene = this.data.scene;
 		this.spriteOffset = this.scene.spriteSheetData.enemies.green_koopa;
 	}
@@ -23,7 +23,7 @@ class Koopa extends Enemy {
 			this.spriteOffset.width,
 			this.spriteOffset.height,
 			this.data.position.x,
-			(this.scene.canvas.height - this.data.position.y),
+			(this.scene.canvas.height - this.data.position.y - 1),
 			1, 2
 		);
 	}

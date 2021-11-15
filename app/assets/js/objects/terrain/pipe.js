@@ -114,7 +114,7 @@ class Pipe extends Terrain {
 					this.spriteSheetThemeOffset.y + offset.y,
 					offset.width,
 					offset.height,
-					this.data.position.x + x,
+					this.data.position.x + x - 1,
 					(this.scene.canvas.height - this.data.position.y_real) + y,
 					1, 1
 				);

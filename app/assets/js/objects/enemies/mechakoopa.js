@@ -5,7 +5,7 @@ const Enemy = require('./enemy');
 class Mechakoopa extends Enemy {
         constructor(data) {
                 super(data);
-                
+
                 this.scene = this.data.scene;
                 this.spriteOffset = this.scene.spriteSheetData.enemies.mechakoopa;
         }
@@ -18,9 +18,8 @@ class Mechakoopa extends Enemy {
                         this.spriteOffset.width,
                         this.spriteOffset.height,
                         this.data.position.x,
-                        (this.scene.canvas.height - this.data.position.y),
-                        this.data.dimensions.width,
-                        this.data.dimensions.height
+                        (this.scene.canvas.height - this.data.position.y) - 1,
+                        2, 2
                 );
         }
 }

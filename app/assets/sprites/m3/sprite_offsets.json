@@ -151,6 +151,12 @@
 			"y": 3110,
 			"width": 16,
 			"height": 16
+		},
+		"boot": {
+			"x": 491,
+			"y": 3159,
+			"width": 16,
+			"height": 32
 		}
 	},
 	"terrain": {
@@ -453,6 +459,122 @@
 				"bottom_right": {
 					"x": 256,
 					"y": 103,
+					"width": 16,
+					"height": 16
+				}
+			}
+		},
+		"mushroom_platform": {
+			"default": {
+				"top_left": {
+					"x": 52,
+					"y": 35,
+					"width": 16,
+					"height": 16
+				},
+				"top_middle": {
+					"x": 69,
+					"y": 35,
+					"width": 16,
+					"height": 16
+				},
+				"top_right": {
+					"x": 86,
+					"y": 35,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 103,
+					"y": 52,
+					"width": 16,
+					"height": 16
+				},
+				"center_offset_left": {
+					"x": 103,
+					"y": 35,
+					"width": 16,
+					"height": 16
+				},
+				"center_offset_right": {
+					"x": 120,
+					"y": 35,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"version_2": {
+				"top_left": {
+					"x": 52,
+					"y": 52,
+					"width": 16,
+					"height": 16
+				},
+				"top_middle": {
+					"x": 69,
+					"y": 52,
+					"width": 16,
+					"height": 16
+				},
+				"top_right": {
+					"x": 86,
+					"y": 52,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 103,
+					"y": 52,
+					"width": 16,
+					"height": 16
+				},
+				"center_offset_left": {
+					"x": 103,
+					"y": 35,
+					"width": 16,
+					"height": 16
+				},
+				"center_offset_right": {
+					"x": 120,
+					"y": 35,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"version_3":  {
+				"top_left": {
+					"x": 52,
+					"y": 69,
+					"width": 16,
+					"height": 16
+				},
+				"top_middle": {
+					"x": 69,
+					"y": 69,
+					"width": 16,
+					"height": 16
+				},
+				"top_right": {
+					"x": 86,
+					"y": 69,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 103,
+					"y": 52,
+					"width": 16,
+					"height": 16
+				},
+				"center_offset_left": {
+					"x": 103,
+					"y": 35,
+					"width": 16,
+					"height": 16
+				},
+				"center_offset_right": {
+					"x": 120,
+					"y": 35,
 					"width": 16,
 					"height": 16
 				}
@@ -1269,10 +1391,80 @@
 			"height": 16
 		},
 		"dotted_line_block": {
-			"x": 35,
-			"y": 358,
+			"on": {
+				"x": 35,
+				"y": 358,
+				"width": 16,
+				"height": 16
+			},
+			"off": {
+			"x": 52,
+			"y": 375,
 			"width": 16,
 			"height": 16
+			}
+		},
+		"conveyor_belt": {
+			"default": {
+				"left": {
+					"x": 137,
+					"y": 1,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 154,
+					"y": 1,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 171,
+					"y": 1,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"on": {
+				"left": {
+					"x": 171,
+					"y": 409,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 188,
+					"y": 409,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 205,
+					"y": 409,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"off": {
+				"left": {
+					"x": 1,
+					"y": 664,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 18,
+					"y": 664,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 35,
+					"y": 664,
+					"width": 16,
+					"height": 16
+				}
+			}
 		}
 	},
 	"enemies": {
