@@ -2,12 +2,86 @@
 	"theme_chunk_offsets": {
 		"day": {
 			"ground": {
-				   "x": 0,
-				   "y": 22
+				"x": 0,
+				"y": 22
+			},
+			"underground": {
+				"x": 274,
+				"y": 22
+			},
+			"underwater": {
+				"x": 548,
+				"y": 22
+			},
+			"desert": {
+				"x": 822,
+				"y": 22
+			},
+			"snow": {
+				"x": 1096,
+				"y": 22
 			},
 			"sky": {
 				"x": 0,
 				"y": 766
+			},
+			"forest": {
+				"x": 274,
+				"y": 766
+			},
+			"ghost_house": {
+				"x": 548,
+				"y": 766
+			},
+			"airship": {
+				"x": 822,
+				"y": 766
+			},
+			"castle": {
+				"x": 1096,
+				"y": 766
+			}
+		},
+		"night": {
+			"ground": {
+				"x": 0,
+				"y": 1524
+			},
+			"underground": {
+				"x": 274,
+				"y": 1524
+			},
+			"underwater": {
+				"x": 548,
+				"y": 1524
+			},
+			"desert": {
+				"x": 822,
+				"y": 1524
+			},
+			"snow": {
+				"x": 1096,
+				"y": 1524
+			},
+			"sky": {
+				"x": 0,
+				"y": 2268
+			},
+			"forest": {
+				"x": 274,
+				"y": 2268
+			},
+			"ghost_house": {
+				"x": 548,
+				"y": 2268
+			},
+			"airship": {
+				"x": 822,
+				"y": 2268
+			},
+			"castle": {
+				"x": 1096,
+				"y": 2268
 			}
 		}
 	},
@@ -35,11 +109,59 @@
 			"y": 3092,
 			"width": 16,
 			"height": 16
+		},
+		"mushroom": {
+			"x": 51,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"one_up_mushroom": {
+			"x": 85,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"fire_flower": {
+			"x": 119,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"star": {
+			"x": 203,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"super_leaf": {
+			"x": 161,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"frog_suit": {
+			"x": 559,
+			"y": 3175,
+			"width": 16,
+			"height": 16
+		},
+		"key": {
+			"x": 988,
+			"y": 3110,
+			"width": 16,
+			"height": 16
 		}
 	},
 	"terrain": {
-		"block": {
+		"brick_block": {
 			"x": 18,
+			"y": 1,
+			"width": 16,
+			"height": 16
+		},
+		"question_block": {
+			"x": 35,
 			"y": 1,
 			"width": 16,
 			"height": 16
@@ -65,6 +187,24 @@
 		"donut_block": {
 			"x": 1,
 			"y": 69,
+			"width": 16,
+			"height": 16
+		},
+		"note_block": {
+			"x": 69,
+			"y": 1,
+			"width": 16,
+			"height": 16
+		},
+		"spike_trap": {
+			"x": 35,
+			"y": 69,
+			"width": 16,
+			"height": 16
+		},
+		"ice_block": {
+			"x": 137,
+			"y": 137,
 			"width": 16,
 			"height": 16
 		},
@@ -977,6 +1117,162 @@
 				"width": 16,
 				"height": 32
 			}
+		},
+		"lift": {
+			"default": {
+				"left": {
+					"x": 955,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 972,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 989,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"flimsy": {
+				"left": {
+					"x": 1006,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"center": {
+					"x": 1023,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 1040,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				}
+			}
+		},
+		"trampoline": {
+			"x": 989,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"bill_blaster": {
+			"x": 323,
+			"y": 3093,
+			"width": 16,
+			"height": 32
+		},
+		"p_switch": {
+			"x": 390,
+			"y": 3176,
+			"width": 16,
+			"height": 16
+		},
+		"pow_block": {
+			"x": 1057,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"firebar": {
+			"x": 1022,
+			"y": 3109,
+			"width": 16,
+			"height": 16
+		},
+		"banzai_bill": {
+			"x": 456,
+			"y": 3093,
+			"width": 64,
+			"height": 64
+		},
+		"cannon": {
+			"x": 248,
+			"y": 3159,
+			"width": 16,
+			"height": 16
+		},
+		"burner": {
+			"x": 1005,
+			"y": 3109,
+			"width": 16,
+			"height": 16
+		},
+		"arrow": {
+			"x": 1142,
+			"y": 3110,
+			"width": 32,
+			"height": 32
+		},
+		"one_way": {
+			"x": 849,
+			"y": 3093,
+			"width": 32,
+			"height": 32
+		},
+		"grinder": {
+			"x": 709,
+			"y": 3134,
+			"width": 48,
+			"height": 48
+		},
+		"twister": {
+			"x": 1023,
+			"y": 3092,
+			"width": 16,
+			"height": 16
+		},
+		"p_block": {
+			"x": 1174,
+			"y": 3093,
+			"width": 16,
+			"height": 16
+		},
+		"bumper": {
+			"x": 758,
+			"y": 3134,
+			"width": 48,
+			"height": 48
+		},
+		"skewer": {
+			"x": 891,
+			"y": 3092,
+			"width": 64,
+			"height": 64
+		},
+		"snake_block": {
+			"x": 1109,
+			"y": 3126,
+			"width": 16,
+			"height": 16
+		},
+		"checkpoint_flag": {
+			"x": 816,
+			"y": 3093,
+			"width": 32,
+			"height": 32
+		},
+		"on_off_switch": {
+			"x": 35,
+			"y": 392,
+			"width": 16,
+			"height": 16
+		},
+		"dotted_line_block": {
+			"x": 35,
+			"y": 358,
+			"width": 16,
+			"height": 16
 		}
 	},
 	"enemies": {
@@ -998,11 +1294,227 @@
 			"width": 16,
 			"height": 32
 		},
+		"goomba": {
+			"x": 68,
+			"y": 3126,
+			"width": 16,
+			"height": 16
+		},
+		"koopa": {
+			"x": 85,
+			"y": 3126,
+			"width": 16,
+			"height": 32
+		},
+		"piranha_plant": {
+			"x": 152,
+			"y": 3143,
+			"width": 16,
+			"height": 24
+		},
+		"hammer_bro": {
+			"x": 187,
+			"y": 3109,
+			"width": 16,
+			"height": 24
+		},
+		"thwomp": {
+			"x": 214,
+			"y": 3126,
+			"width": 24,
+			"height": 32
+		},
+		"bob_omb": {
+			"x": 34,
+			"y": 3141,
+			"width": 16,
+			"height": 16
+		},
+		"spiny": {
+			"x": 119,
+			"y": 3176,
+			"width": 16,
+			"height": 16
+		},
+		"buzzy_beetle": {
+			"x": 559,
+			"y": 3158,
+			"width": 16,
+			"height": 16
+		},
+		"lakitu": {
+			"x": 333,
+			"y": 3143,
+			"width": 16,
+			"height": 32
+		},
+		"lakitus_cloud": {
+			"x": 783,
+			"y": 3093,
+			"width": 32,
+			"height": 32
+		},
+		"magikoopa": {
+			"x": 34,
+			"y": 3159,
+			"width": 32,
+			"height": 32
+		},
+		"spiketop": {
+			"x": 214,
+			"y": 3159,
+			"width": 16,
+			"height": 16
+		},
+		"boo": {
+			"x": 316,
+			"y": 3159,
+			"width": 16,
+			"height": 16
+		},
+		"koopa_clown_car": {
+			"x": 257,
+			"y": 3093,
+			"width": 32,
+			"height": 32
+		},
+		"dry_bones": {
+			"x": 68,
+			"y": 3160,
+			"width": 16,
+			"height": 32
+		},
+		"blooper": {
+			"x": 170,
+			"y": 3176,
+			"width": 16,
+			"height": 16
+		},
+		"wiggler": {
+			"x": 601,
+			"y": 3175,
+			"width": 64,
+			"height": 16
+		},
+		"cheep_cheep": {
+			"x": 136,
+			"y": 3176,
+			"width": 16,
+			"height": 16
+		},
 		"muncher": {
 			"x": 51,
 			"y": 3126,
 			"width": 16,
 			"height": 16
+		},
+		"rocky_wrench": {
+			"x": 456,
+			"y": 3159,
+			"width": 16,
+			"height": 32
+		},
+		"lava_bubble": {
+			"x": 102,
+			"y": 3176,
+			"width": 16,
+			"height": 16
+		},
+		"chain_chomp": {
+			"x": 299,
+			"y": 3176,
+			"width": 16,
+			"height": 16
+		},
+		"bowser": {
+			"x": 103,
+			"y": 3127,
+			"width": 48,
+			"height": 48
+		},
+		"spike": {
+			"x": 282,
+			"y": 3159,
+			"width": 16,
+			"height": 16
+		},
+		"boom_boom": {
+			"x": 290,
+			"y": 3093,
+			"width": 32,
+			"height": 32
+		},
+		"bowser_jr": {
+			"x": 423,
+			"y": 3159,
+			"width": 32,
+			"height": 32
+		},
+		"monty_mole": {
+			"x": 34,
+			"y": 3125,
+			"width": 16,
+			"height": 16
+		},
+		"fish_bone": {
+			"x": 204,
+			"y": 3176,
+			"width": 32,
+			"height": 16
+		},
+		"angry_sun": {
+			"x": 1,
+			"y": 3125,
+			"width": 32,
+			"height": 32
+		},
+		"mechakoopa": {
+			"x": 357,
+			"y": 3093,
+			"width": 32,
+			"height": 32
+		},
+		"lemmy": {
+			"x": 627,
+			"y": 3093,
+			"width": 40,
+			"height": 40
+		},
+		"morton": {
+			"x": 668,
+			"y": 3093,
+			"width": 40,
+			"height": 40
+		},
+		"larry": {
+			"x": 586,
+			"y": 3134,
+			"width": 40,
+			"height": 40
+		},
+		"wendy": {
+			"x": 709,
+			"y": 3093,
+			"width": 40,
+			"height": 40
+		},
+		"iggy": {
+			"x": 586,
+			"y": 3093,
+			"width": 40,
+			"height": 40
+		},
+		"roy": {
+			"x": 668,
+			"y": 3134,
+			"width": 40,
+			"height": 40
+		},
+		"ludwig": {
+			"x": 627,
+			"y": 3134,
+			"width": 40,
+			"height": 40
 		}
 	},
 	"rails": {
