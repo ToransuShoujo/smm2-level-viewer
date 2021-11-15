@@ -1,13 +1,13 @@
 /* eslint-env browser */
 
-const Gizmo = require('./gizmo');
+const Enemy = require('./enemy');
 
-class Lift extends Gizmo {
+class BobOmb extends Enemy {
         constructor(data) {
                 super(data);
                 
                 this.scene = this.data.scene;
-                this.spriteOffset = this.scene.spriteSheetData.gizmos.lift;
+                this.spriteOffset = this.scene.spriteSheetData.enemies.bob_omb;
         }
 
         draw() {
@@ -25,4 +25,4 @@ class Lift extends Gizmo {
         }
 }
 
-module.exports = Lift;
+module.exports = BobOmb;
