@@ -5,7 +5,7 @@ const Terrain = require('./terrain');
 class CloudBlock extends Terrain {
 	constructor(data) {
 		super(data);
-		
+
 		this.scene = this.data.scene;
 		this.spriteSheetThemeOffset = this.scene.spriteSheetThemeOffset;
 		this.spriteOffset = this.scene.spriteSheetData.terrain.cloud_block;
@@ -24,6 +24,21 @@ class CloudBlock extends Terrain {
 			this.data.dimensions.width,
 			this.data.dimensions.height
 		);
+		if ((this.data.flags & 0x2) == 0x2) {
+			let modifierOffset;
+			modifierOffset = this.scene.spriteSheetData.modifiers.twoWings;
+
+			this.canvasContext.drawImage(
+				this.scene.spriteSheet,
+				modifierOffset.x,
+				modifierOffset.y,
+				modifierOffset.width,
+				modifierOffset.height,
+				this.data.position.x - 0.5,
+				(this.scene.canvas.height - this.data.position.y),
+				2, 1
+			);
+		}
 	}
 }
 
