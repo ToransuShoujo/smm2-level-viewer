@@ -26,6 +26,22 @@ class Koopa extends Enemy {
 			(this.scene.canvas.height - this.data.position.y - 1),
 			1, 2
 		);
+
+		if ((this.data.flags & 0x2) == 0x2) {
+			let modifierOffset;
+			modifierOffset = this.scene.spriteSheetData.modifiers.oneWing;
+
+			this.canvasContext.drawImage(
+				this.scene.spriteSheet,
+				modifierOffset.x,
+				modifierOffset.y,
+				modifierOffset.width,
+				modifierOffset.height,
+				this.data.position.x + 0.5,
+				(this.scene.canvas.height - this.data.position.y - 0.75),
+				1, 1
+			);
+		}
 	}
 }
 
