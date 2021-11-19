@@ -7,11 +7,27 @@ class Pokey extends Enemy {
     super(data);
 
     this.scene = this.data.scene;
-    this.spriteOffset = this.scene.spriteSheetData.enemies.pokey.default;
+    this.spriteOffset = this.scene.spriteSheetData.enemies.pokey;
   }
 
-  // This is not done yet. It is 1:51 am and I don't want to write this right now.
   draw() {
+
+    for (let y = 0; y < this.data.dimensions.height; y++) {
+      if (y !== this.data.dimensions.height - 1) {
+        if ((this.data.flags & 0x4) == 0x4) {
+          this.spriteOffset.snow.body;
+        } else {
+          this.spriteOffset.default.body;
+        }
+      } else {
+        if ((this.data.flags & 0x4) == 0x4) {
+          this.spriteOffset.snow.head;
+        } else {
+          this.spriteOffset.default.head;
+        }
+      }
+    }
+
     this.canvasContext.drawImage(
       this.scene.spriteSheet,
       this.spriteOffset.x,
