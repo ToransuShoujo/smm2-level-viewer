@@ -5,9 +5,9 @@ const Enemy = require('./Enemy');
 class AngrySun extends Enemy {
 	constructor(data) {
 		super(data);
-		
+
 		this.scene = this.data.scene;
-		this.spriteOffset = this.scene.spriteSheetData.enemies.angry_sun;
+		this.spriteOffset = this.scene.spriteSheetData.enemies.angry_sun.default;
 	}
 
 	draw() {

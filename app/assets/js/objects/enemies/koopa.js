@@ -7,13 +7,13 @@ class Koopa extends Enemy {
 		super(data);
 
 		this.scene = this.data.scene;
-		this.spriteOffset = this.scene.spriteSheetData.enemies.green_koopa;
+		this.spriteOffset = this.scene.spriteSheetData.enemies.koopa.default;
 	}
 
 	draw() {
 
-		if (this.data.flags & 0x4) {
-			this.spriteOffset = this.scene.spriteSheetData.enemies.red_koopa;
+		if ((this.data.flags & 0x4) == 0x4) {
+			this.spriteOffset = this.scene.spriteSheetData.enemies.koopa.red;
 		}
 
 		this.canvasContext.drawImage(
@@ -28,8 +28,7 @@ class Koopa extends Enemy {
 		);
 
 		if ((this.data.flags & 0x2) == 0x2) {
-			let modifierOffset;
-			modifierOffset = this.scene.spriteSheetData.modifiers.oneWing;
+			const modifierOffset = this.scene.spriteSheetData.modifiers.oneWing;
 
 			this.canvasContext.drawImage(
 				this.scene.spriteSheet,
