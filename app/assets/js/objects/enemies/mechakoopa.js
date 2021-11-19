@@ -11,6 +11,16 @@ class Mechakoopa extends Enemy {
   }
 
   draw() {
+
+    // This does not work unless I type all of these paths out like this. I don't know why.
+    if ((this.data.flags & 0x40000) == 0x40000) {
+      this.spriteOffset = this.scene.spriteSheetData.enemies.mechakoopa.blasta;
+    } else if ((this.data.flags & 0x80000) == 0x80000) {
+      this.spriteOffset = this.scene.spriteSheetData.enemies.mechakoopa.zappa;
+    } else {
+      this.spriteOffset = this.scene.spriteSheetData.enemies.mechakoopa.default;
+    }
+
     this.canvasContext.drawImage(
       this.scene.spriteSheet,
       this.spriteOffset.x,

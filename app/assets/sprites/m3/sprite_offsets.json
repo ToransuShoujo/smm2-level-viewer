@@ -1791,10 +1791,24 @@
 			}
 		},
 		"mechakoopa": {
-			"x": 357,
-			"y": 3093,
-			"width": 32,
-			"height": 32
+			"default": {
+				"x": 357,
+				"y": 3093,
+				"width": 32,
+				"height": 32
+			},
+			"blasta": {
+				"x": 357,
+				"y": 3159,
+				"width": 32,
+				"height": 32
+			},
+			"zappa": {
+				"x": 357,
+				"y": 3126,
+				"width": 32,
+				"height": 32
+			}
 		},
 		"lemmy": {
 			"x": 627,
