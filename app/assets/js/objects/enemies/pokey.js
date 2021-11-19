@@ -15,15 +15,15 @@ class Pokey extends Enemy {
     for (let y = 0; y < this.data.dimensions.height; y++) {
       if (y !== this.data.dimensions.height - 1) {
         if ((this.data.flags & 0x4) == 0x4) {
-          this.spriteOffset.snow.body;
+          this.spriteOffset = this.spriteOffset.snow.body;
         } else {
-          this.spriteOffset.default.body;
+          this.spriteOffset = this.spriteOffset.default.body;
         }
       } else {
         if ((this.data.flags & 0x4) == 0x4) {
-          this.spriteOffset.snow.head;
+          this.spriteOffset = this.spriteOffset.snow.head;
         } else {
-          this.spriteOffset.default.head;
+          this.spriteOffset = this.spriteOffset.default.head;
         }
       }
     }
