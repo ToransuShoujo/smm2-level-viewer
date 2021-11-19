@@ -1770,5 +1770,13 @@
 			"width": 16,
 			"height": 16
 		}
+	},
+	"other": {
+		"blank_tile": {
+			"x": 1,
+			"y": 290,
+			"width": 16,
+			"height": 16
+		}
 	}
 }

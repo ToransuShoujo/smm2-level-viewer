@@ -29,24 +29,19 @@ class MushroomPlatform extends Terrain {
       for (let y = 0; y < this.data.dimensions.height; y++) {
         let offset;
 
-        //If we are at the top of the mushroom platform...
         if (y == this.data.dimensions.height - 1) {
-          //If we are at the very left of the top section...
           if (x == 0) {
             offset = this.spriteOffset.top_left;
-            //Else if we are at the very right of the top section...
           } else if (x == this.data.dimensions.width - 1) {
             offset = this.spriteOffset.top_right
           } else {
             offset = this.spriteOffset.top_middle;
           }
-          //If we are not at the top of the mushroom platform...
         } else {
-          //If we are at the center of the mushroom platform...
           if ((x == this.data.dimensions.width / 2) || (x == (this.data.dimensions.width / 2) - 0.5)) {
             offset = this.spriteOffset.center;
           } else {
-            break;
+            offset = this.scene.spriteSheetData.other.blank_tile;
           }
         }
 
@@ -58,7 +53,7 @@ class MushroomPlatform extends Terrain {
             this.spriteSheetThemeOffset.y + offset.y,
             offset.width,
             offset.height,
-            this.data.position.x + x - 1,
+            this.data.position.x + x - 0.5,
             (this.scene.canvas.height - this.data.position.y_real) - y,
             1, 1
           );
