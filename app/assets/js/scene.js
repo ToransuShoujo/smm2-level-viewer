@@ -45,7 +45,7 @@ const Boo = require('./objects/enemies/boo');
 const KoopaClownCar = require('./objects/enemies/koopaclowncar');
 const SpikeTrap = require('./objects/terrain/spiketrap');
 const SuperLeaf = require('./objects/items/superleaf');
-const Boot = require('./objects/items/boot');
+const ShoeGoomba = require('./objects/items/shoegoomba');
 const DryBones = require('./objects/enemies/drybones');
 const Cannon = require('./objects/gizmos/cannon');
 const Blooper = require('./objects/enemies/blooper');
@@ -310,7 +310,7 @@ class CourseViewer {
 				case 42: this.objects.push(new KoopaClownCar(object)); break;
 				case 43: this.objects.push(new SpikeTrap(object)); break;
 				case 44: this.objects.push(new SuperLeaf(object)); break;
-				case 45: this.objects.push(new Boot(object)); break;
+				case 45: this.objects.push(new ShoeGoomba(object)); break;
 				case 46: this.objects.push(new DryBones(object)); break;
 				case 47: this.objects.push(new Cannon(object)); break;
 				case 48: this.objects.push(new Blooper(object)); break;

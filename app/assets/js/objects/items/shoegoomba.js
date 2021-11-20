@@ -1,19 +1,19 @@
 /* eslint-env browser */
 
-const Gizmo = require('./gizmo');
+const Item = require('./item');
 
-class Trampoline extends Gizmo {
+class ShoeGoomba extends Item {
   constructor(data) {
     super(data);
 
     this.scene = this.data.scene;
-    this.spriteOffset = this.scene.spriteSheetData.gizmos.trampoline.default;
+    this.spriteOffset = this.scene.spriteSheetData.enemies.shoe_goomba.default;
   }
 
   draw() {
 
     if ((this.data.flags & 0x4) == 0x4) {
-      this.spriteOffset = this.scene.spriteSheetData.gizmos.trampoline.sideways;
+      this.spriteOffset = this.scene.spriteSheetData.enemies.shoe_goomba.stiletto;
     }
 
     this.canvasContext.drawImage(
@@ -30,4 +30,4 @@ class Trampoline extends Gizmo {
   }
 }
 
-module.exports = Trampoline;
+module.exports = ShoeGoomba;

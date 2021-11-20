@@ -7,15 +7,13 @@ class KoopaClownCar extends Enemy {
     super(data);
 
     this.scene = this.data.scene;
-    this.spriteOffset = this.scene.spriteSheetData.enemies.koopa_clown_car;
+    this.spriteOffset = this.scene.spriteSheetData.enemies.koopa_clown_car.default;
   }
 
   draw() {
 
     if ((this.data.flags & 0x4) == 0x4) {
-      this.spriteOffset = this.spriteOffset.fire;
-    } else {
-      this.spriteOffset = this.spriteOffset.default;
+      this.spriteOffset = this.scene.spriteSheetData.enemies.koopa_clown_car.fire;
     }
 
     this.canvasContext.drawImage(

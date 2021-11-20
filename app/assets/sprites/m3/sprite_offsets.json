@@ -1305,10 +1305,18 @@
 			}
 		},
 		"trampoline": {
-			"x": 989,
-			"y": 3092,
-			"width": 16,
-			"height": 16
+			"default": {
+				"x": 989,
+				"y": 3092,
+				"width": 16,
+				"height": 16
+			},
+			"sideways": {
+				"x": 1006,
+				"y": 3092,
+				"width": 16,
+				"height": 16
+			}
 		},
 		"bill_blaster": {
 			"x": 323,
@@ -1335,10 +1343,18 @@
 			"height": 16
 		},
 		"banzai_bill": {
-			"x": 456,
-			"y": 3093,
-			"width": 64,
-			"height": 64
+			"default": {
+				"x": 456,
+				"y": 3093,
+				"width": 64,
+				"height": 64
+			},
+			"bulls_eye": {
+				"x": 521,
+				"y": 3093,
+				"width": 64,
+				"height": 64
+			}
 		},
 		"cannon": {
 			"x": 248,
@@ -1516,6 +1532,20 @@
 				"y": 3143,
 				"width": 16,
 				"height": 16
+			}
+		},
+		"shoe_goomba": {
+			"default": {
+				"x": 491,
+				"y": 3159,
+				"width": 16,
+				"height": 32
+			},
+			"stiletto": {
+				"x": 525,
+				"y": 3159,
+				"width": 16,
+				"height": 32
 			}
 		},
 		"piranha_plant": {

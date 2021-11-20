@@ -11,6 +11,11 @@ class AngrySun extends Enemy {
 	}
 
 	draw() {
+
+		if ((this.data.flags & 0x4) == 0x4) {
+			this.spriteOffset = this.scene.spriteSheetData.enemies.angry_sun.moon;
+		}
+		
 		this.canvasContext.drawImage(
 			this.scene.spriteSheet,
 			this.spriteOffset.x,
