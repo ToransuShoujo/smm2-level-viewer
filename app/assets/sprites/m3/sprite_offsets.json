@@ -225,10 +225,18 @@
 			"height": 16
 		},
 		"spike_trap": {
-			"x": 35,
-			"y": 69,
-			"width": 16,
-			"height": 16
+			"default": {
+				"x": 35,
+				"y": 69,
+				"width": 16,
+				"height": 16
+			},
+			"jelectro": {
+				"x": 1040,
+				"y": 3092,
+				"width": 16,
+				"height": 16
+			}
 		},
 		"ice_block": {
 			"x": 137,
@@ -1319,10 +1327,34 @@
 			}
 		},
 		"bill_blaster": {
-			"x": 323,
-			"y": 3093,
-			"width": 16,
-			"height": 32
+			"default": {
+				"body": {
+					"x": 323,
+					"y": 3126,
+					"width": 16,
+					"height": 16
+				},
+				"head": {
+					"x": 323,
+					"y": 3093,
+					"width": 16,
+					"height": 32
+				}
+			},
+			"bulls_eye": {
+				"body": {
+					"x": 340,
+					"y": 3093,
+					"width": 16,
+					"height": 16
+				},
+				"head": {
+					"x": 340,
+					"y": 3126,
+					"width": 16,
+					"height": 32
+				}
+			}
 		},
 		"p_switch": {
 			"x": 390,
@@ -1357,16 +1389,54 @@
 			}
 		},
 		"cannon": {
-			"x": 248,
-			"y": 3159,
-			"width": 16,
-			"height": 16
+			"default": {
+				"cannon": {
+					"x": 248,
+					"y": 3159,
+					"width": 16,
+					"height": 16
+				},
+				"base": {
+					"x": 248,
+					"y": 3176,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"red": {
+				"cannon": {
+					"x": 265,
+					"y": 3159,
+					"width": 16,
+					"height": 16
+				},
+				"base": {
+					"x": 265,
+					"y": 3176,
+					"width": 16,
+					"height": 16
+				}
+			}
 		},
 		"burner": {
-			"x": 1005,
-			"y": 3109,
-			"width": 16,
-			"height": 16
+			"base": {
+				"x": 1005,
+				"y": 3109,
+				"width": 16,
+				"height": 16
+			},
+			"fire": {
+				"x": 807,
+				"y": 3126,
+				"width": 16,
+				"height": 48
+			},
+			"alternate_fire": {
+				"x": 807,
+				"y": 3126,
+				"width": 16,
+				"height": 48
+			}
 		},
 		"arrow": {
 			"x": 1142,
@@ -1393,10 +1463,18 @@
 			"height": 16
 		},
 		"p_block": {
-			"x": 1174,
-			"y": 3093,
-			"width": 16,
-			"height": 16
+			"default": {
+				"x": 1174,
+				"y": 3093,
+				"width": 16,
+				"height": 16
+			},
+			"active": {
+				"x": 1157,
+				"y": 3093,
+				"width": 16,
+				"height": 16
+			}
 		},
 		"bumper": {
 			"x": 758,
@@ -1411,10 +1489,18 @@
 			"height": 64
 		},
 		"snake_block": {
-			"x": 1109,
-			"y": 3126,
-			"width": 16,
-			"height": 16
+			"default": {
+				"x": 1109,
+				"y": 3126,
+				"width": 16,
+				"height": 16
+			},
+			"fast": {
+				"x": 1125,
+				"y": 3126,
+				"width": 16,
+				"height": 16
+			}
 		},
 		"checkpoint_flag": {
 			"x": 816,

@@ -5,13 +5,14 @@ const Terrain = require('./terrain');
 class SpikeTrap extends Terrain {
 	constructor(data) {
 		super(data);
-		
+
 		this.scene = this.data.scene;
 		this.spriteSheetThemeOffset = this.scene.spriteSheetThemeOffset;
-		this.spriteOffset = this.scene.spriteSheetData.terrain.spike_trap;
+		this.spriteOffset = this.scene.spriteSheetData.terrain.spike_trap.default;
 		this.drawPriority = 888;
 	}
 
+	// Jelectro has not yet been implemented
 	draw() {
 		this.canvasContext.drawImage(
 			this.scene.spriteSheet,
