@@ -247,22 +247,10 @@ class CourseViewer {
 	}
 
 	_loadObjects(callback) {
+		this.objects.push(new StartSignArrow(this));
+		
 		for (const object of this.courseData.objects) {
-			console.log(
-				object.child_flags+','+
-				object.child_type+','+
-				object.dimensions.width+','+
-				object.dimensions.height+','+
-				object.extended_data+','+
-				object.flags+','+
-				object.link_id+','+
-				object.position.x+','+
-				object.position.y+','+
-				object.sound_effect_id+','+
-				object.style+','+
-				object.theme+','+
-				object.type
-			);
+			console.log(object.position.x);
 
 			object.scene = this;
 
@@ -425,6 +413,298 @@ class CourseViewer {
 	_loadTrackBlocks(callback) { callback(); }
 
 	_loadTiles(callback) {
+		// add start ground tiles
+		for(let x=0 ; x<6 ; x++)
+		{
+			for(let y=0 ; y<this.courseData.start_y-1 ; y++)
+			{
+				this.courseData.tiles.push( {
+					x: x,
+					y: y,
+					id: 12,
+				} );
+			}
+			this.courseData.tiles.push( {
+				x: x,
+				y: this.courseData.start_y-1,
+				id: 9,
+			} );
+		}
+		
+		// start ground right edges
+		for(let y=0 ; y<this.courseData.start_y-1 ; y++)
+		{
+			let rightEdge = false;
+			let bottomRightEdge = false;
+			let topRightEdge = false;
+			for (const tile of this.courseData.tiles) {
+				// check start ground edges
+				if(tile.x==7)
+				{
+					if(tile.y==y)
+					{
+						rightEdge = true;
+					}
+					else if(tile.y==y+1)
+					{
+						topRightEdge = true;
+					}
+					else if(tile.y==y-1)
+					{
+						bottomRightEdge = true;
+					}
+				}
+			}
+			
+			// set edge tile type
+			let edgeId = 3;
+			if(rightEdge == true && bottomRightEdge == true && topRightEdge == true) {
+				edgeId = 12;
+			}
+			else if(rightEdge == true && bottomRightEdge == true && topRightEdge == false) {
+				edgeId = 68;
+			}
+			else if(rightEdge == true && bottomRightEdge == false && topRightEdge == false) {
+				edgeId = 55;
+			}
+			else if(rightEdge == true && bottomRightEdge == false && topRightEdge == true) {
+				edgeId = 70;
+			}
+			
+			this.courseData.tiles.push( {
+				x: 6,
+				y: y,
+				id: edgeId,
+			} );
+		}
+		
+		// check start ground corner edges
+		let cornerRightEdge = false;
+		let cornerBottomRightEdge = false;
+		for (const tile of this.courseData.tiles) {
+			if(tile.x==7)
+			{
+				if(tile.y==this.courseData.start_y-1)
+				{
+					cornerRightEdge = true;
+				}
+				else if(tile.y==this.courseData.start_y-2)
+				{
+					cornerBottomRightEdge = true;
+				}
+			}
+		}
+		
+		// start ground corner
+		let cornerId = 1;
+		if(cornerRightEdge == true && cornerBottomRightEdge == true) {
+			cornerId = 9;
+		}
+		else if(cornerRightEdge == true && cornerBottomRightEdge == false) {
+			cornerId = 45;
+		}
+		this.courseData.tiles.push( {
+			x: 6,
+			y: this.courseData.start_y-1,
+			id: cornerId,
+		} );
+		
+		// add goal ground tiles
+		for(let x=this.courseData.width-9 ; x<this.courseData.width ; x++)
+		{
+			// inner tiles
+			for(let y=0 ; y<this.courseData.goal_y-1 ; y++)
+			{
+				this.courseData.tiles.push( {
+					x: x,
+					y: y,
+					id: 12,
+				} );
+			}
+			
+			// top edge
+			this.courseData.tiles.push( {
+				x: x,
+				y: this.courseData.goal_y-1,
+				id: 9,
+			} );
+		}
+		
+		// goal ground left edges
+		for(let y=0 ; y<this.courseData.goal_y-1 ; y++)
+		{
+			let leftEdge = false;
+			let bottomLeftEdge = false;
+			let topLeftEdge = false;
+			for (const tile of this.courseData.tiles) {
+				// check goal ground edges
+				if(tile.x==this.courseData.width-10)
+				{
+					if(tile.y==y)
+					{
+						leftEdge = true;
+					}
+					else if(tile.y==y+1)
+					{
+						topLeftEdge = true;
+					}
+					else if(tile.y==y-1)
+					{
+						bottomLeftEdge = true;
+					}
+				}
+			}
+			
+			// set edge tile type
+			let edgeId = 2;
+			if(leftEdge == true && bottomLeftEdge == true && topLeftEdge == true) {
+				edgeId = 12;
+			}
+			else if(leftEdge == true && bottomLeftEdge == true && topLeftEdge == false) {
+				edgeId = 67;
+			}
+			else if(leftEdge == true && bottomLeftEdge == false && topLeftEdge == false) {
+				edgeId = 54;
+			}
+			else if(leftEdge == true && bottomLeftEdge == false && topLeftEdge == true) {
+				edgeId = 69;
+			}
+			
+			this.courseData.tiles.push( {
+				x: this.courseData.width-10,
+				y: y,
+				id: edgeId,
+			} );
+		}
+		
+		// check goal ground corner edges
+		let cornerLeftEdge = false;
+		let cornerBottomLeftEdge = false;
+		let cornerTopLeftEdge = false;
+		let cornerTopRightEdge = false;
+		let cornerTopEdge = false;
+		for (const tile of this.courseData.tiles) {
+			if(tile.x==this.courseData.width-10)
+			{
+				if(tile.y==this.courseData.goal_y-1)
+				{
+					cornerLeftEdge = true;
+				}
+				else if(tile.y==this.courseData.start_y-2)
+				{
+					cornerBottomLeftEdge = true;
+				}
+				else if(tile.y==this.courseData.start_y)
+				{
+					cornerTopLeftEdge = true;
+				}
+			}
+			else if(tile.x==this.courseData.width-9)
+			{
+				if(tile.y==this.courseData.start_y)
+				{
+					cornerTopEdge = true;
+				}
+			}
+			else if(tile.x==this.courseData.width-8)
+			{
+				if(tile.y==this.courseData.start_y)
+				{
+					cornerTopRightEdge = true;
+				}
+			}
+		}
+		
+		// goal ground corner
+		cornerId = 0;
+		if(cornerLeftEdge == true) 
+		{
+			if(cornerTopEdge == true) 
+			{
+				if(cornerTopLeftEdge == true)
+				{
+					if(cornerTopRightEdge == true)
+					{
+						if(cornerBottomLeftEdge == true)
+						{
+							cornerId = 9;
+						}
+						else
+						{
+							cornerId = 69;
+						}
+					}
+					else
+					{
+						if(cornerBottomLeftEdge == true)
+						{
+							cornerId = 68;
+						}
+						else
+						{
+							cornerId = 56;
+						}
+					}
+				}
+				else
+				{
+					if(cornerTopRightEdge == true)
+					{
+						if(cornerBottomLeftEdge == true)
+						{
+							cornerId = 67;
+						}
+						else
+						{
+							cornerId = 54;
+						}
+					}
+					else
+					{
+						if(cornerBottomLeftEdge == true)
+						{
+							cornerId = 52;
+						}
+						else
+						{
+							cornerId = 48;
+						}
+					}
+				}
+			}
+			else
+			{
+				if(cornerBottomLeftEdge == true)
+				{
+					cornerId = 9;
+				}
+				else
+				{
+					cornerId = 44;
+				}
+			}
+		}
+		else
+		{
+			if(cornerTopEdge == true) 
+			{
+				if(cornerTopRightEdge == true)
+				{
+					cornerId = 2;
+				}
+				else
+				{
+					cornerId = 40;
+				}
+			}
+		}
+		this.courseData.tiles.push( {
+			x: this.courseData.width-10,
+			y: this.courseData.goal_y-1,
+			id: cornerId,
+		} );
+		
+		// load courseData tiles
 		for (const tile of this.courseData.tiles) {
 			tile.scene = this;
 			this.tiles.push(new Tile(tile));
@@ -448,6 +728,13 @@ class CourseViewer {
 		this._reset();
 
 		this.courseData = data;
+		
+		console.log("this.courseData.boundary");
+		console.log(this.courseData.boundary);
+		console.log("this.courseData.goal_x: "+this.courseData.goal_x);
+		console.log("this.courseData.goal_x / 10: "+(this.courseData.goal_x/10));
+		this.courseData.width = (this.courseData.goal_x + 95) / 10;
+		
 		//this.canvas.height = (27) * this._canvasScaleRate;
 		this.canvas.height = window.innerHeight;
 		this.canvas.width = ((this.courseData.goal_x + 95) / 10) * this._canvasScaleRate;
@@ -461,12 +748,6 @@ class CourseViewer {
 		});
 
 		this.spriteSheetData = require(`../sprites/${this.courseData.style}/sprite_offsets.json`);
-		console.log(this.courseData.style);
-		console.log(this.spriteSheetData.theme_chunk_offsets);
-		console.log(this.courseData.theme);
-		console.log(THEMES[this.courseData.theme]);
-		console.log(this.courseData.time_of_day);
-		console.log(TIMES[this.courseData.time_of_day]);
 		this.spriteSheetThemeOffset = this.spriteSheetData.theme_chunk_offsets[TIMES[this.courseData.time_of_day]][THEMES[this.courseData.theme]];
 
 		await new Promise(resolve => {
