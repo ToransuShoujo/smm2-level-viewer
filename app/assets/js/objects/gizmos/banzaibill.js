@@ -7,14 +7,15 @@ class BanzaiBill extends Gizmo {
     super(data);
 
     this.scene = this.data.scene;
-    this.spriteOffset = this.scene.spriteSheetData.gizmos.banzai_bill.default;
-  }
-
-  draw() {
 
     if ((this.data.flags & 0x4) == 0x4) {
       this.spriteOffset = this.scene.spriteSheetData.gizmos.banzai_bill.bulls_eye;
-    }
+    } else {
+		this.spriteOffset = this.scene.spriteSheetData.gizmos.banzai_bill.default;
+	}
+  }
+
+  draw() {
     
     this.canvasContext.drawImage(
       this.scene.spriteSheet,
@@ -22,8 +23,8 @@ class BanzaiBill extends Gizmo {
       this.spriteOffset.y,
       this.spriteOffset.width,
       this.spriteOffset.height,
-      this.data.position.x,
-      (this.scene.canvas.height - this.data.position.y),
+      this.data.position.x - 1.5,
+      (this.scene.canvas.height - this.data.position.y) - 3,
       this.data.dimensions.width,
       this.data.dimensions.height
     );

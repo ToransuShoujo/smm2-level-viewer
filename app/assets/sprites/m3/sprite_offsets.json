@@ -170,7 +170,7 @@
 		},
 		"key": {
 			"x": 988,
-			"y": 3110,
+			"y": 3109,
 			"width": 16,
 			"height": 16
 		},
@@ -1428,6 +1428,72 @@
 		}
 	},
 	"gizmos": {
+		"swinging_claw": {
+			"open": {
+				"x": 939,
+				"y": 3157,
+				"width": 48,
+				"height": 32
+			},
+			"closed": {
+				"x": 890,
+				"y": 3157,
+				"width": 48,
+				"height": 32
+			},
+			"top": {
+				"x": 872,
+				"y": 3175,
+				"width": 16,
+				"height": 16
+			},
+			"chain": {
+				"x": 316,
+				"y": 3176,
+				"width": 16,
+				"height": 16
+			}
+		},
+		"vine": {
+			"top": {
+				"x": 256,
+				"y": 120,
+				"width": 16,
+				"height": 16
+			},
+			"middle": {
+				"x": 239,
+				"y": 120,
+				"width": 16,
+				"height": 16
+			},
+			"bottom": {
+				"x": 222,
+				"y": 120,
+				"width": 16,
+				"height": 16
+			}
+		},
+		"seesaw": {
+			"left": {
+				"x": 1057,
+				"y": 3126,
+				"width": 16,
+				"height": 16
+			},
+			"center": {
+				"x": 1074,
+				"y": 3126,
+				"width": 16,
+				"height": 16
+			},
+			"right": {
+				"x": 1091,
+				"y": 3126,
+				"width": 16,
+				"height": 16
+			}
+		},
 		"lava_lift": {
 			"blue": {
 				"x": 136,
@@ -1536,13 +1602,13 @@
 			"bulls_eye": {
 				"body": {
 					"x": 340,
-					"y": 3093,
+					"y": 3126,
 					"width": 16,
 					"height": 16
 				},
 				"head": {
 					"x": 340,
-					"y": 3126,
+					"y": 3093,
 					"width": 16,
 					"height": 32
 				}
@@ -1675,14 +1741,14 @@
 			"height": 48
 		},
 		"skewer": {
-			"x": 891,
+			"x": 890,
 			"y": 3092,
 			"width": 64,
 			"height": 64
 		},
 		"snake_block": {
 			"default": {
-				"x": 1109,
+				"x": 1108,
 				"y": 3126,
 				"width": 16,
 				"height": 16
@@ -2029,10 +2095,24 @@
 			"height": 16
 		},
 		"chain_chomp": {
-			"x": 299,
-			"y": 3176,
-			"width": 16,
-			"height": 16
+			"body": {
+				"x": 299,
+				"y": 3176,
+				"width": 16,
+				"height": 16
+			},
+			"stake": {
+				"x": 333,
+				"y": 3176,
+				"width": 16,
+				"height": 16
+			},
+			"chain": {
+				"x": 316,
+				"y": 3176,
+				"width": 16,
+				"height": 16
+			}
 		},
 		"bowser": {
 			"x": 103,

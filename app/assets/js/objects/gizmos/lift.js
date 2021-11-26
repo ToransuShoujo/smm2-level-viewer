@@ -10,12 +10,12 @@ class Lift extends Gizmo {
 		this.spriteOffsets = this.scene.spriteSheetData.gizmos.lift;
 
 		if ((this.data.flags & 0x4) == 0x4) {
-		this.spriteOffsets = this.spriteOffsets.flimsy;
-	} else {
-		this.spriteOffsets = this.spriteOffsets.default;
-	}
+			this.spriteOffsets = this.spriteOffsets.flimsy;
+		} else {
+			this.spriteOffsets = this.spriteOffsets.default;
+		}
 
-}
+	}
 
 	draw() {
 		for (let x = 0; x < this.data.dimensions.width; x++) {
@@ -34,7 +34,7 @@ class Lift extends Gizmo {
 				offset.y,
 				offset.width,
 				offset.height,
-				this.data.position.x + x,
+				Math.round(this.data.position.x - this.data.dimensions.width/2) + x,
 				(this.scene.canvas.height - this.data.position.y),
 				1, 1
 			);
