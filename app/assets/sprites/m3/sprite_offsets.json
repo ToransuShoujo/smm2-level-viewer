@@ -127,10 +127,18 @@
 			}
 		},
 		"life_up_shroom": {
-			"x": 85,
-			"y": 3092,
-			"width": 16,
-			"height": 16
+			"default": {
+				"x": 85,
+				"y": 3092,
+				"width": 16,
+				"height": 16
+			},
+			"poison": {
+				"x": 102,
+				"y": 3092,
+				"width": 16,
+				"height": 16
+			}
 		},
 		"mushroom": {
 			"x": 51,
@@ -1627,10 +1635,18 @@
 			"height": 16
 		},
 		"firebar": {
-			"x": 1022,
-			"y": 3109,
-			"width": 16,
-			"height": 16
+			"base": {
+				"x": 1022,
+				"y": 3109,
+				"width": 16,
+				"height": 16
+			},
+			"fireball": {
+				"x": 959,
+				"y": 3143,
+				"width": 7,
+				"height": 8
+			}
 		},
 		"banzai_bill": {
 			"default": {
@@ -1921,10 +1937,18 @@
 			}
 		},
 		"thwomp": {
-			"x": 214,
-			"y": 3126,
-			"width": 24,
-			"height": 32
+			"default": {
+				"x": 214,
+				"y": 3126,
+				"width": 24,
+				"height": 32
+			},
+			"sideways": {
+				"x": 220,
+				"y": 3092,
+				"width": 24,
+				"height": 32
+			}
 		},
 		"bob_omb": {
 			"default": {
@@ -2001,10 +2025,24 @@
 			}
 		},
 		"boo": {
-			"x": 316,
-			"y": 3159,
-			"width": 16,
-			"height": 16
+			"default": {
+				"x": 316,
+				"y": 3159,
+				"width": 16,
+				"height": 16
+			},
+			"stretch": {
+				"x": 390,
+				"y": 3159,
+				"width": 32,
+				"height": 16
+			},
+			"ring": {
+				"x": 1039,
+				"y": 3157,
+				"width": 32,
+				"height": 32
+			}
 		},
 		"koopa_clown_car": {
 			"default": {
@@ -2141,10 +2179,18 @@
 			}
 		},
 		"boom_boom": {
-			"x": 290,
-			"y": 3093,
-			"width": 32,
-			"height": 32
+			"default": {
+				"x": 290,
+				"y": 3093,
+				"width": 32,
+				"height": 32
+			},
+			"wings": {
+				"x": 290,
+				"y": 3092,
+				"width": 32,
+				"height": 32
+			}
 		},
 		"bowser_jr": {
 			"x": 423,
@@ -2345,6 +2391,50 @@
 			"y": 3126,
 			"width": 48,
 			"height": 48
+		},
+		"liquid": {
+			"water": {
+				"default": {
+					"x": 1022,
+					"y": 3173,
+					"width": 16,
+					"height": 16
+				},
+				"top": {
+					"x": 1022,
+					"y": 3156,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"lava": {
+				"default": {
+					"x": 1005,
+					"y": 3173,
+					"width": 16,
+					"height": 16
+				},
+				"top": {
+					"x": 1005,
+					"y": 3156,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"poison": {
+				"default": {
+					"x": 988,
+					"y": 3173,
+					"width": 16,
+					"height": 16
+				},
+				"top": {
+					"x": 1005,
+					"y": 3156,
+					"width": 16,
+					"height": 16
+				}
+			}
 		}
 	}
 }
