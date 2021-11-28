@@ -31,8 +31,7 @@ class Thwomp extends Enemy {
 				offset.height,
 				this.data.position.x - 0.5,
 				(this.scene.canvas.height - this.data.position.y) - 1,
-				this.data.dimensions.width,
-				this.data.dimensions.height
+				1.5, 2
 			);
 			this.canvasContext.restore();
 		} else {
@@ -44,8 +43,7 @@ class Thwomp extends Enemy {
 				offset.height,
 				this.data.position.x - 0.5,
 				(this.scene.canvas.height - this.data.position.y) - 1,
-				this.data.dimensions.width,
-				this.data.dimensions.height
+				1.5, 2
 			);
 		}
 	}
