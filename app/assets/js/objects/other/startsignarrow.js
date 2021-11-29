@@ -9,7 +9,6 @@ class StartSignArrow{
 		this.data.position = [];
 		this.data.position.x = 1;
 		this.data.position.y = scene.courseData.start_y+2;
-		console.log(this.position);
 		this.drawPriority = 0;
 	}
 
