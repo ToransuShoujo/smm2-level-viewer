@@ -41,7 +41,7 @@ class MushroomPlatform extends Terrain {
           if ((x == this.data.dimensions.width / 2) || (x == (this.data.dimensions.width / 2) - 0.5)) {
             offset = this.spriteOffset.center;
           } else {
-            offset = this.scene.spriteSheetData.other.blank_tile;
+            offset = this.scene.spriteSheetData.other.blank_tile_themeoffset;
           }
         }
 
