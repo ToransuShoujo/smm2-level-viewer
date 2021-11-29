@@ -248,7 +248,7 @@
 		},
 		"ice_block": {
 			"x": 137,
-			"y": 137,
+			"y": 120,
 			"width": 16,
 			"height": 16
 		},
@@ -868,13 +868,13 @@
 						"height": 16
 					},
 					"center_top": {
-						"x": 83,
+						"x": 86,
 						"y": 409,
 						"width": 16,
 						"height": 16
 					},
 					"center_bottom": {
-						"x": 83,
+						"x": 86,
 						"y": 426,
 						"width": 16,
 						"height": 16
@@ -2380,12 +2380,18 @@
 		}
 	},
 	"other": {
+		"blank_tile_themeoffset": {
+			"x": 1,
+			"y": 1,
+			"width": 16,
+			"height": 16
+		},
 		"blank_tile": {
 			"x": 1,
 			"y": 23,
 			"width": 16,
 			"height": 16
-		},
+		}
 		"start_sign_arrow": {
 			"x": 841,
 			"y": 3126,
