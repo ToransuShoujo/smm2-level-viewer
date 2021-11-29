@@ -248,7 +248,7 @@ class CourseViewer {
 
 	_loadObjects(callback) {
 		this.objects.push(new StartSignArrow(this));
-		
+
 		for (const object of this.courseData.objects) {
 			console.log(object.position.x);
 
@@ -430,7 +430,7 @@ class CourseViewer {
 				id: 9,
 			} );
 		}
-		
+
 		// start ground right edges
 		for(let y=0 ; y<this.courseData.start_y-1 ; y++)
 		{
@@ -455,7 +455,7 @@ class CourseViewer {
 					}
 				}
 			}
-			
+
 			// set edge tile type
 			let edgeId = 3;
 			if(rightEdge == true && bottomRightEdge == true && topRightEdge == true) {
@@ -470,14 +470,14 @@ class CourseViewer {
 			else if(rightEdge == true && bottomRightEdge == false && topRightEdge == true) {
 				edgeId = 70;
 			}
-			
+
 			this.courseData.tiles.push( {
 				x: 6,
 				y: y,
 				id: edgeId,
 			} );
 		}
-		
+
 		// check start ground corner edges
 		let cornerRightEdge = false;
 		let cornerBottomRightEdge = false;
@@ -494,7 +494,7 @@ class CourseViewer {
 				}
 			}
 		}
-		
+
 		// start ground corner
 		let cornerId = 1;
 		if(cornerRightEdge == true && cornerBottomRightEdge == true) {
@@ -508,7 +508,7 @@ class CourseViewer {
 			y: this.courseData.start_y-1,
 			id: cornerId,
 		} );
-		
+
 		// add goal ground tiles
 		for(let x=this.courseData.width-9 ; x<this.courseData.width ; x++)
 		{
@@ -521,7 +521,7 @@ class CourseViewer {
 					id: 12,
 				} );
 			}
-			
+
 			// top edge
 			this.courseData.tiles.push( {
 				x: x,
@@ -529,7 +529,7 @@ class CourseViewer {
 				id: 9,
 			} );
 		}
-		
+
 		// goal ground left edges
 		for(let y=0 ; y<this.courseData.goal_y-1 ; y++)
 		{
@@ -554,7 +554,7 @@ class CourseViewer {
 					}
 				}
 			}
-			
+
 			// set edge tile type
 			let edgeId = 2;
 			if(leftEdge == true && bottomLeftEdge == true && topLeftEdge == true) {
@@ -569,14 +569,14 @@ class CourseViewer {
 			else if(leftEdge == true && bottomLeftEdge == false && topLeftEdge == true) {
 				edgeId = 69;
 			}
-			
+
 			this.courseData.tiles.push( {
 				x: this.courseData.width-10,
 				y: y,
 				id: edgeId,
 			} );
 		}
-		
+
 		// check goal ground corner edges
 		let cornerLeftEdge = false;
 		let cornerBottomLeftEdge = false;
@@ -614,12 +614,12 @@ class CourseViewer {
 				}
 			}
 		}
-		
+
 		// goal ground corner
 		cornerId = 0;
-		if(cornerLeftEdge == true) 
+		if(cornerLeftEdge == true)
 		{
-			if(cornerTopEdge == true) 
+			if(cornerTopEdge == true)
 			{
 				if(cornerTopLeftEdge == true)
 				{
@@ -686,7 +686,7 @@ class CourseViewer {
 		}
 		else
 		{
-			if(cornerTopEdge == true) 
+			if(cornerTopEdge == true)
 			{
 				if(cornerTopRightEdge == true)
 				{
@@ -703,7 +703,7 @@ class CourseViewer {
 			y: this.courseData.goal_y-1,
 			id: cornerId,
 		} );
-		
+
 		// load courseData tiles
 		for (const tile of this.courseData.tiles) {
 			tile.scene = this;
@@ -728,16 +728,17 @@ class CourseViewer {
 		this._reset();
 
 		this.courseData = data;
-		
+
 		console.log("this.courseData.boundary");
 		console.log(this.courseData.boundary);
 		console.log("this.courseData.goal_x: "+this.courseData.goal_x);
 		console.log("this.courseData.goal_x / 10: "+(this.courseData.goal_x/10));
 		this.courseData.width = (this.courseData.goal_x + 95) / 10;
-		
-		//this.canvas.height = (27) * this._canvasScaleRate;
-		this.canvas.height = window.innerHeight;
-		this.canvas.width = ((this.courseData.goal_x + 95) / 10) * this._canvasScaleRate;
+
+			//this.canvas.height = (27) * this._canvasScaleRate;
+			this.canvas.height = window.innerHeight;
+			//this.canvas.width = ((this.courseData.goal_x + 95) / 10) * this._canvasScaleRate;
+			this.canvas.width = window.innerWidth;
 
 		this.boundLastY = this.canvas.height - 27; // Top bounding box of the course
 		this.boundLastX = 0; // Left bounding box of the course
