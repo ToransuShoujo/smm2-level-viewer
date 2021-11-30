@@ -169,11 +169,32 @@ class CourseViewer {
 		this._minScaleLevel = 1;
 		this._maxScaleLevel = 5;
 		this._scaleRate = 1.1;
-		this._canvasScaleRate = 15;
-
+		this._setupWindowListener();
 		this._setupMouseControls();
 
 		this._reset();
+	}
+
+	_setupWindowListener() {
+		window.addEventListener('resize', () => {
+			
+			//const transform = this.ctx.getTransform();
+			
+			this.canvas.height = window.innerHeight;
+			this.canvas.width = window.innerWidth;
+			
+			this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+			this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+			
+			const point = this.ctx.transformedPoint(0, this.canvas.height);
+			const factor = Math.pow(this._scaleRate, (3.75 * 10));
+
+			this.ctx.translate(point.x, point.y);
+			this.ctx.scale(factor, factor);
+			this.ctx.translate(-point.x, -point.y);
+			
+			this.render();
+		});
 	}
 
 	// With help from http://phrogz.net/tmp/canvas_zoom_to_cursor.html
@@ -195,19 +216,14 @@ class CourseViewer {
 		this.canvas.addEventListener('mousemove', event => {
 			this.mouseLastX = event.offsetX || (event.pageX - this.canvas.offsetLeft);
 			this.mouseLastY = event.offsetY || (event.pageY - this.canvas.offsetTop);
-
+			
 			if (!this._mouseClicked) {
 				return;
 			}
 
 			const point = this.ctx.transformedPoint(this.mouseLastX, this.mouseLastY);
 			this.ctx.translate(point.x-this.dragStart.x, point.y-this.dragStart.y);
-
-			// This makes a weird parallax
-			//this.boundLastX += (point.x-this.dragStart.x);
-			//this.boundLastY += (point.y-this.dragStart.y);
-
-			this.clear();
+			
 			this.render();
 		});
 
@@ -226,7 +242,7 @@ class CourseViewer {
 			this.ctx.scale(factor, factor);
 			this.ctx.translate(-point.x, -point.y);
 
-			this.clear();
+
 			this.render();
 		});
 	}
@@ -248,9 +264,8 @@ class CourseViewer {
 
 	_loadObjects(callback) {
 		this.objects.push(new StartSignArrow(this));
-
+		
 		for (const object of this.courseData.objects) {
-			console.log(object.position.x);
 
 			object.scene = this;
 
@@ -430,7 +445,7 @@ class CourseViewer {
 				id: 9,
 			} );
 		}
-
+		
 		// start ground right edges
 		for(let y=0 ; y<this.courseData.start_y-1 ; y++)
 		{
@@ -455,7 +470,7 @@ class CourseViewer {
 					}
 				}
 			}
-
+			
 			// set edge tile type
 			let edgeId = 3;
 			if(rightEdge == true && bottomRightEdge == true && topRightEdge == true) {
@@ -470,14 +485,14 @@ class CourseViewer {
 			else if(rightEdge == true && bottomRightEdge == false && topRightEdge == true) {
 				edgeId = 70;
 			}
-
+			
 			this.courseData.tiles.push( {
 				x: 6,
 				y: y,
 				id: edgeId,
 			} );
 		}
-
+		
 		// check start ground corner edges
 		let cornerRightEdge = false;
 		let cornerBottomRightEdge = false;
@@ -494,7 +509,7 @@ class CourseViewer {
 				}
 			}
 		}
-
+		
 		// start ground corner
 		let cornerId = 1;
 		if(cornerRightEdge == true && cornerBottomRightEdge == true) {
@@ -508,7 +523,7 @@ class CourseViewer {
 			y: this.courseData.start_y-1,
 			id: cornerId,
 		} );
-
+		
 		// add goal ground tiles
 		for(let x=this.courseData.width-9 ; x<this.courseData.width ; x++)
 		{
@@ -521,7 +536,7 @@ class CourseViewer {
 					id: 12,
 				} );
 			}
-
+			
 			// top edge
 			this.courseData.tiles.push( {
 				x: x,
@@ -529,7 +544,7 @@ class CourseViewer {
 				id: 9,
 			} );
 		}
-
+		
 		// goal ground left edges
 		for(let y=0 ; y<this.courseData.goal_y-1 ; y++)
 		{
@@ -554,7 +569,7 @@ class CourseViewer {
 					}
 				}
 			}
-
+			
 			// set edge tile type
 			let edgeId = 2;
 			if(leftEdge == true && bottomLeftEdge == true && topLeftEdge == true) {
@@ -569,14 +584,14 @@ class CourseViewer {
 			else if(leftEdge == true && bottomLeftEdge == false && topLeftEdge == true) {
 				edgeId = 69;
 			}
-
+			
 			this.courseData.tiles.push( {
 				x: this.courseData.width-10,
 				y: y,
 				id: edgeId,
 			} );
 		}
-
+		
 		// check goal ground corner edges
 		let cornerLeftEdge = false;
 		let cornerBottomLeftEdge = false;
@@ -614,12 +629,12 @@ class CourseViewer {
 				}
 			}
 		}
-
+		
 		// goal ground corner
 		cornerId = 0;
-		if(cornerLeftEdge == true)
+		if(cornerLeftEdge == true) 
 		{
-			if(cornerTopEdge == true)
+			if(cornerTopEdge == true) 
 			{
 				if(cornerTopLeftEdge == true)
 				{
@@ -686,7 +701,7 @@ class CourseViewer {
 		}
 		else
 		{
-			if(cornerTopEdge == true)
+			if(cornerTopEdge == true) 
 			{
 				if(cornerTopRightEdge == true)
 				{
@@ -703,7 +718,7 @@ class CourseViewer {
 			y: this.courseData.goal_y-1,
 			id: cornerId,
 		} );
-
+		
 		// load courseData tiles
 		for (const tile of this.courseData.tiles) {
 			tile.scene = this;
@@ -728,20 +743,10 @@ class CourseViewer {
 		this._reset();
 
 		this.courseData = data;
-
-		console.log("this.courseData.boundary");
-		console.log(this.courseData.boundary);
-		console.log("this.courseData.goal_x: "+this.courseData.goal_x);
-		console.log("this.courseData.goal_x / 10: "+(this.courseData.goal_x/10));
 		this.courseData.width = (this.courseData.goal_x + 95) / 10;
-
-			//this.canvas.height = (27) * this._canvasScaleRate;
-			this.canvas.height = window.innerHeight;
-			//this.canvas.width = ((this.courseData.goal_x + 95) / 10) * this._canvasScaleRate;
-			this.canvas.width = window.innerWidth;
-
-		this.boundLastY = this.canvas.height - 27; // Top bounding box of the course
-		this.boundLastX = 0; // Left bounding box of the course
+		
+		this.canvas.height = window.innerHeight;
+		this.canvas.width = window.innerWidth;
 
 		await new Promise(resolve => {
 			this.backgroundImage.src = `./assets/sprites/${this.courseData.style}/background.png`;
@@ -840,7 +845,7 @@ function trackTransforms(ctx){
 	const savedTransforms = [];
 
 	ctx.getTransform = () => svgMatrix;
-
+	
 	const save = ctx.save;
 	ctx.save = () => {
 		savedTransforms.push(svgMatrix.translate(0, 0));
@@ -854,7 +859,7 @@ function trackTransforms(ctx){
 
 		return restore.call(ctx);
 	};
-
+	
 	const scale = ctx.scale;
 	ctx.scale = (sx, sy) => {
 		svgMatrix = svgMatrix.scaleNonUniform(sx, sy);
