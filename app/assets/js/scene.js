@@ -266,8 +266,10 @@ class CourseViewer {
 		this.objects.push(new StartSignArrow(this));
 		
 		for (const object of this.courseData.objects) {
-
+			
 			object.scene = this;
+			
+			//console.log(object.type+","+object.flags+","+object.dimensions.width+","+object.position.x+","+object.dimensions.height+","+object.position.y)
 
 			switch (object.type) {
 				case 0: this.objects.push(new Goomba(object)); break;
@@ -805,16 +807,16 @@ class CourseViewer {
 			this.ctx.drawImage(this.backgroundImage, i * 27, (this.canvas.height - 26), 27, 27);
 		}
 
+		for (const tile of this.tiles) {
+			tile.draw();
+		}
+
 		for (const rail of this.rails) {
 			rail.draw();
 		}
 
 		for (const object of this.objects) {
 			object.draw();
-		}
-
-		for (const tile of this.tiles) {
-			tile.draw();
 		}
 
 		// Add rest of render parts
@@ -866,7 +868,7 @@ function trackTransforms(ctx){
 
 		return scale.call(ctx, sx, sy);
 	};
-
+	
 	const rotate = ctx.rotate;
 	ctx.rotate = radians => {
 		svgMatrix = svgMatrix.rotate(radians*180/Math.PI);
