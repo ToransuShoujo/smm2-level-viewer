@@ -24,11 +24,11 @@ class BowserJr extends Enemy {
 		const widthPositionAdjustment = (this.data.dimensions.width-1)/2;
 		const heightPositionAdjustment = (this.data.dimensions.height-1);
 		let spriteWidthAdjustment = (this.spriteOffset.width*scale/16)-this.data.dimensions.width;
+		const spriteHeightAdjustment = (this.spriteOffset.height*scale/16)-this.data.dimensions.height-2/16*scale;
 		if(center)
 		{
 			spriteWidthAdjustment/=2.0;
 		}
-		const spriteHeightAdjustment = (this.spriteOffset.height*scale/16)-this.data.dimensions.height;
 		
 		this.canvasContext.drawImage(
 			this.scene.spriteSheet,

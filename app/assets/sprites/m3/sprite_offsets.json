@@ -2098,6 +2098,18 @@
 				"y": 3175,
 				"width": 64,
 				"height": 16
+			},
+			"default_head": {
+				"x": 601,
+				"y": 3175,
+				"width": 16,
+				"height": 16
+			},
+			"angry_head": {
+				"x": 807,
+				"y": 3175,
+				"width": 16,
+				"height": 16
 			}
 		},
 		"cheep_cheep": {
@@ -2202,7 +2214,7 @@
 			"x": 34,
 			"y": 3125,
 			"width": 16,
-			"height": 15
+			"height": 16
 		},
 		"fish_bone": {
 			"x": 204,

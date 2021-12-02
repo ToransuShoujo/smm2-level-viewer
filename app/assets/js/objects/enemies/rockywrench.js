@@ -21,7 +21,7 @@ class RockyWrench extends Enemy {
 		const widthPositionAdjustment = (this.data.dimensions.width-1)/2;
 		const heightPositionAdjustment = (this.data.dimensions.height-1);
 		let spriteWidthAdjustment = (this.spriteOffset.width*scale/16)-this.data.dimensions.width;
-		const spriteHeightAdjustment = (this.spriteOffset.height*scale/16)-this.data.dimensions.height;
+		const spriteHeightAdjustment = (this.spriteOffset.height*scale/16)-this.data.dimensions.height-13/16*scale;
 		
 		this.canvasContext.drawImage(
 			this.scene.spriteSheet,
