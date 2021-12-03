@@ -157,7 +157,23 @@ class CourseViewer {
 	constructor(canvas) {
 		this.canvas = canvas;
 		this.ctx = this.canvas.getContext('2d');
-
+		
+		this.ctx.transformedPoint = function(px,py) {
+			/*Parameters
+			 *a (m11) Horizontal scaling. A value of 1 results in no scaling.
+			 *b (m12) Vertical skewing.
+			 *c (m21) Horizontal skewing.
+			 *d (m22) Vertical scaling. A value of 1 results in no scaling.
+			 *e (dx) Horizontal translation (moving).
+			 *f (dy) Vertical translation (moving).
+			 */
+			let matrix = this.getTransform();
+			return {
+				x: (px- matrix.e)/matrix.a + matrix.c * py ,
+				y: matrix.b * px + (py- matrix.f)/matrix.d ,
+			};
+		};
+		
 		this.ctx.imageSmoothingEnabled = false;
 
 		this.backgroundImage = new Image();
@@ -178,8 +194,6 @@ class CourseViewer {
 	_setupWindowListener() {
 		window.addEventListener('resize', () => {
 			
-			//const transform = this.ctx.getTransform();
-			
 			this.canvas.height = window.innerHeight;
 			this.canvas.width = window.innerWidth;
 			
@@ -191,7 +205,9 @@ class CourseViewer {
 
 			this.ctx.translate(point.x, point.y);
 			this.ctx.scale(factor, factor);
-			this.ctx.translate(-point.x, -point.y);
+			this.ctx.translate(-point.x, -point.y-1); // -1 because we want position.y=0 blocks to appear above the x axis
+			
+			this._scaleLevel = 1;
 			
 			this.render();
 		});
@@ -199,14 +215,11 @@ class CourseViewer {
 
 	// With help from http://phrogz.net/tmp/canvas_zoom_to_cursor.html
 	_setupMouseControls() {
-		trackTransforms(this.ctx);
 
 		this.canvas.addEventListener('mousedown', event => {
 			this._mouseClicked = true;
-
-			this.mouseLastX = event.offsetX || (event.pageX - this.canvas.offsetLeft);
-			this.mouseLastY = event.offsetY || (event.pageY - this.canvas.offsetTop);
-			this.dragStart = this.ctx.transformedPoint(this.mouseLastX, this.mouseLastY);
+			this.mouseLastX = event.screenX;
+			this.mouseLastY = event.screenY;
 		});
 
 		this.canvas.addEventListener('mouseup', () => {
@@ -214,16 +227,13 @@ class CourseViewer {
 		});
 
 		this.canvas.addEventListener('mousemove', event => {
-			this.mouseLastX = event.offsetX || (event.pageX - this.canvas.offsetLeft);
-			this.mouseLastY = event.offsetY || (event.pageY - this.canvas.offsetTop);
-			
 			if (!this._mouseClicked) {
 				return;
 			}
 
-			const point = this.ctx.transformedPoint(this.mouseLastX, this.mouseLastY);
-			this.ctx.translate(point.x-this.dragStart.x, point.y-this.dragStart.y);
-			
+			this.ctx.translate((event.screenX-this.mouseLastX)/this.ctx.getTransform().a, (event.screenY-this.mouseLastY)/this.ctx.getTransform().d);
+			this.mouseLastX = event.screenX;
+			this.mouseLastY = event.screenY;
 			this.render();
 		});
 
@@ -234,14 +244,13 @@ class CourseViewer {
 			}
 
 			this._scaleLevel += (delta < 0 ? -1 : 1);
-
-			const point = this.ctx.transformedPoint(this.mouseLastX, this.mouseLastY);
+			
+			const point = this.ctx.transformedPoint(event.offsetX, event.offsetY);
 			const factor = Math.pow(this._scaleRate, delta);
 
 			this.ctx.translate(point.x, point.y);
 			this.ctx.scale(factor, factor);
 			this.ctx.translate(-point.x, -point.y);
-
 
 			this.render();
 		});
@@ -762,13 +771,12 @@ class CourseViewer {
 			this.spriteSheet.src = `./assets/sprites/${this.courseData.style}/spritesheet.png`;
 			this.spriteSheet.addEventListener('load', resolve);
 		});
-
-		const point = this.ctx.transformedPoint(0, this.canvas.height);
+		
+		let point = this.ctx.transformedPoint(0, this.canvas.height);
 		const factor = Math.pow(this._scaleRate, (3.75 * 10));
-
 		this.ctx.translate(point.x, point.y);
 		this.ctx.scale(factor, factor);
-		this.ctx.translate(-point.x, -point.y);
+		this.ctx.translate(-point.x, -point.y-1); // -1 because we want position.y=0 blocks to appear above the x axis
 
 		await new Promise(resolve => {
 			// allows us to keep `this` reference
@@ -840,82 +848,3 @@ class CourseViewer {
 }
 
 module.exports = CourseViewer;
-
-function trackTransforms(ctx){
-	const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-	let svgMatrix = svg.createSVGMatrix();
-	const savedTransforms = [];
-
-	ctx.getTransform = () => svgMatrix;
-	
-	const save = ctx.save;
-	ctx.save = () => {
-		savedTransforms.push(svgMatrix.translate(0, 0));
-
-		return save.call(ctx);
-	};
-
-	const restore = ctx.restore;
-	ctx.restore = () => {
-		svgMatrix = savedTransforms.pop();
-
-		return restore.call(ctx);
-	};
-	
-	const scale = ctx.scale;
-	ctx.scale = (sx, sy) => {
-		svgMatrix = svgMatrix.scaleNonUniform(sx, sy);
-
-		return scale.call(ctx, sx, sy);
-	};
-	
-	const rotate = ctx.rotate;
-	ctx.rotate = radians => {
-		svgMatrix = svgMatrix.rotate(radians*180/Math.PI);
-
-		return rotate.call(ctx, radians);
-	};
-
-	const translate = ctx.translate;
-	ctx.translate = (dx, dy) => {
-		svgMatrix = svgMatrix.translate(dx, dy);
-
-		return translate.call(ctx, dx, dy);
-	};
-
-	const transform = ctx.transform;
-	ctx.transform = (a, b, c, d, e, f) => {
-		const svgMatrix2 = svg.createSVGMatrix();
-
-		svgMatrix2.a = a;
-		svgMatrix2.b = b;
-		svgMatrix2.c = c;
-		svgMatrix2.d = d;
-		svgMatrix2.e = e;
-		svgMatrix2.f = f;
-
-		svgMatrix = svgMatrix.multiply(svgMatrix2);
-
-		return transform.call(ctx,a,b,c,d,e,f);
-	};
-
-	const setTransform = ctx.setTransform;
-	ctx.setTransform = (a, b, c, d, e, f) => {
-		svgMatrix.a = a;
-		svgMatrix.b = b;
-		svgMatrix.c = c;
-		svgMatrix.d = d;
-		svgMatrix.e = e;
-		svgMatrix.f = f;
-
-		return setTransform.call(ctx, a, b, c, d, e, f);
-	};
-
-	const svgPoint  = svg.createSVGPoint();
-	ctx.transformedPoint = (x, y) => {
-		svgPoint.x = x;
-		svgPoint.y = y;
-
-		return svgPoint.matrixTransform(svgMatrix.inverse());
-	};
-}
