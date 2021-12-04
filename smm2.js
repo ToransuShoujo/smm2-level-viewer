@@ -284,9 +284,9 @@ function decodeCourse(courseBuffer) {
 			y: railData.readUInt8(0x4),
 			type: railData.readUInt8(0x5),
 			index: railData.readUInt16LE(0x6), // index in the rail track
-			left: railData.readUInt8(0x8),
+			right: railData.readUInt8(0x8),
 			up: railData.readUInt8(0x9),
-			right: railData.readUInt8(0xA),
+			left: railData.readUInt8(0xA),
 			down: railData.readUInt8(0xB)
 		});
 

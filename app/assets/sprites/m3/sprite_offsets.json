@@ -1433,6 +1433,12 @@
 			"y": 256,
 			"width": 16,
 			"height": 16
+		},
+		"ground_71": {
+			"x": 256,
+			"y": 256,
+			"width": 16,
+			"height": 16
 		}
 	},
 	"gizmos": {
@@ -1706,7 +1712,7 @@
 				"height": 48
 			},
 			"alternate_fire": {
-				"x": 807,
+				"x": 824,
 				"y": 3126,
 				"width": 16,
 				"height": 48
@@ -1800,6 +1806,84 @@
 				"y": 375,
 				"width": 16,
 				"height": 16
+			}
+		},
+		"steep_conveyor_belt": {
+			"default": {
+				"left": {
+					"x": 69,
+					"y": 290,
+					"width": 16,
+					"height": 16
+				},
+				"center_top_left": {
+					"x": 86,
+					"y": 290,
+					"width": 16,
+					"height": 16
+				},
+				"center_bottom_right": {
+					"x": 86,
+					"y": 273,
+					"width": 16,
+					"height": 16
+				},
+				"center_bottom_left": {
+					"x": 137,
+					"y": 273,
+					"width": 16,
+					"height": 16
+				},
+				"center_top_right": {
+					"x": 137,
+					"y": 290,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 103,
+					"y": 273,
+					"width": 16,
+					"height": 16
+				}
+			},
+			"on": {
+				"left": {
+					"x": 69,
+					"y": 358,
+					"width": 16,
+					"height": 16
+				},
+				"center_top_left": {
+					"x": 86,
+					"y": 358,
+					"width": 16,
+					"height": 16
+				},
+				"center_bottom_right": {
+					"x": 86,
+					"y": 341,
+					"width": 16,
+					"height": 16
+				},
+				"center_bottom_left": {
+					"x": 137,
+					"y": 341,
+					"width": 16,
+					"height": 16
+				},
+				"center_top_right": {
+					"x": 137,
+					"y": 358,
+					"width": 16,
+					"height": 16
+				},
+				"right": {
+					"x": 103,
+					"y": 341,
+					"width": 16,
+					"height": 16
+				}
 			}
 		},
 		"conveyor_belt": {
@@ -2212,7 +2296,7 @@
 		},
 		"monty_mole": {
 			"x": 34,
-			"y": 3125,
+			"y": 3124,
 			"width": 16,
 			"height": 16
 		},
@@ -2409,6 +2493,20 @@
 			"y": 3126,
 			"width": 48,
 			"height": 48
+		},
+		"goal_pole": {
+			"default": {
+				"x": 750,
+				"y": 3093,
+				"width": 32,
+				"height": 32
+			},
+			"axe": {
+				"x": 750,
+				"y": 3093,
+				"width": 32,
+				"height": 32
+			}
 		},
 		"liquid": {
 			"water": {

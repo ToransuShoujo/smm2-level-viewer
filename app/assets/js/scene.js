@@ -273,9 +273,10 @@ class CourseViewer {
 
 	_loadObjects(callback) {
 		this.objects.push(new StartSignArrow(this));
+		this.objects.push(new GoalPole(this));
 		
-		for (const object of this.courseData.objects) {
-			
+		for (const object of this.courseData.objects) {		
+			//console.log(object.child_flags+","+object.child_type+","+object.dimensions.width+","+object.dimensions.height+","+object.extended_data+","+object.flags+","+object.link_id+","+object.position.x+","+object.position.y+","+object.sound_effect_id+","+object.style+","+object.theme+","+object.type);
 			object.scene = this;
 			
 			//console.log(object.type+","+object.flags+","+object.dimensions.width+","+object.position.x+","+object.dimensions.height+","+object.position.y)
@@ -724,11 +725,29 @@ class CourseViewer {
 				}
 			}
 		}
+		
+		// add corner tile to courseData
 		this.courseData.tiles.push( {
 			x: this.courseData.width-10,
 			y: this.courseData.goal_y-1,
 			id: cornerId,
 		} );
+		
+		// castle ground tiles
+		if (THEMES[this.courseData.theme] == 'castle') {
+			// 14 castle bridge tiles
+			// 2 axe ground tiles
+			for(let x=0; x<16; x++)
+			{
+				console.log("new tile, x:"+x+", posX:"+(this.courseData.goal_x/10 - 14.5 + x)+", y:"+(this.courseData.goal_y - ((x<14) ? 1:0)));
+				
+				this.courseData.tiles.push( {
+					x: this.courseData.goal_x/10 - 14.5 + x,
+					y: this.courseData.goal_y - ((x<14) ? 1 : 0),
+					id: (x<14) ? 71 : 12 // ID 12 might be wrong
+				} );
+			}
+		}
 		
 		// load courseData tiles
 		for (const tile of this.courseData.tiles) {
