@@ -67,22 +67,22 @@ class Boo extends Enemy {
 				this.spriteOffset.width/16*scale,
 				this.spriteOffset.height/16*scale
 			);
+		}
+		
+		if ((this.data.flags & 0x8000) == 0x8000) {
+			const modifierOffset = this.scene.spriteSheetData.modifiers.parachute;
 
-			if ((this.data.flags & 0x8000) == 0x8000) {
-				const modifierOffset = this.scene.spriteSheetData.modifiers.parachute;
-
-				this.canvasContext.drawImage(
-					this.scene.spriteSheet,
-					modifierOffset.x,
-					modifierOffset.y,
-					modifierOffset.width,
-					modifierOffset.height,
-					this.data.position.x - widthPositionAdjustment - spriteWidthAdjustment + (0.5*scale - 0.5),
-					(this.scene.canvas.height - this.data.position.y - heightPositionAdjustment - spriteHeightAdjustment - 1),
-					this.spriteOffset.width/16,
-					this.spriteOffset.height/16
-				);
-			}
+			this.canvasContext.drawImage(
+				this.scene.spriteSheet,
+				modifierOffset.x,
+				modifierOffset.y,
+				modifierOffset.width,
+				modifierOffset.height,
+				this.data.position.x - widthPositionAdjustment - spriteWidthAdjustment + (0.5*scale - 0.5),
+				(this.scene.canvas.height - this.data.position.y - heightPositionAdjustment - spriteHeightAdjustment - 1),
+				this.spriteOffset.width/16,
+				this.spriteOffset.height/16
+			);
 		}
 	}
 }
